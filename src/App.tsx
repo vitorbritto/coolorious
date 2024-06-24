@@ -9,10 +9,6 @@ const App = () => {
   return (
     <>
       <Box
-        minHeight="100vh"
-        justifyContent="center"
-        alignContent="center"
-        margin="auto"
         bgcolor={theme => theme.palette.background.default}
         color={theme => theme.palette.text.primary}
         padding={3}
