@@ -81,10 +81,10 @@ const AboutModal = ({ open, onClose }: AboutModalProps) => {
           }}
         >
           <Typography component="span" variant="caption">
-            Versão 0.1.0
+            Versão 0.2.0
           </Typography>
           <Typography component="span" variant="caption">
-            Última atualização: Abril 2024
+            Última atualização: Janeiro 2025
           </Typography>
         </Box>
       </Box>
