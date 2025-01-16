@@ -21,7 +21,7 @@ const ColorScale = () => {
     try {
       await navigator.clipboard.writeText(color)
       toast.success(`Cor ${color} copiada!`, {
-        icon: '📋',
+        icon: () => '📋',
         style: {
           backgroundColor: '#0e141d',
           color: '#ffec70',
@@ -31,7 +31,7 @@ const ColorScale = () => {
       })
     } catch (err) {
       toast.error('Não foi possível copiar a cor', {
-        icon: '❌',
+        icon: () => '❌',
         style: {
           backgroundColor: '#0e141d',
           color: '#ffec70',
@@ -46,7 +46,7 @@ const ColorScale = () => {
       const colorsText = colorScale.join('\n')
       await navigator.clipboard.writeText(colorsText)
       toast.success('Todas as cores foram copiadas!', {
-        icon: '📋',
+        icon: () => '📋',
         style: {
           backgroundColor: '#0e141d',
           color: '#ffec70',
@@ -56,7 +56,7 @@ const ColorScale = () => {
       })
     } catch (err) {
       toast.error('Não foi possível copiar as cores', {
-        icon: '❌',
+        icon: () => '❌',
         style: {
           backgroundColor: '#0e141d',
           color: '#ffec70',
@@ -79,7 +79,7 @@ const ColorScale = () => {
     URL.revokeObjectURL(url)
 
     toast.success('Escala de cores baixada!', {
-      icon: '💾',
+      icon: () => '💾',
       style: {
         backgroundColor: '#0e141d',
         color: '#ffec70',
