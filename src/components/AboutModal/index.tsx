@@ -31,8 +31,10 @@ const AboutModal = ({ open, onClose }: AboutModalProps) => {
           border: '1px solid rgba(255,255,255,0.1)'
         }}
       >
-        <CloseIcon
+        <Box
+          component="button"
           onClick={onClose}
+          aria-label="fechar"
           sx={{
             position: 'absolute',
             top: 16,
@@ -40,11 +42,17 @@ const AboutModal = ({ open, onClose }: AboutModalProps) => {
             color: '#ffec70',
             opacity: 0.8,
             cursor: 'pointer',
+            background: 'none',
+            border: 'none',
+            padding: 0,
+            display: 'flex',
             '&:hover': {
               opacity: 1
             }
           }}
-        />
+        >
+          <CloseIcon />
+        </Box>
 
         <Typography
           variant="h2"
