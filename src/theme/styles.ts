@@ -123,11 +123,26 @@ export const styles = {
   },
   colorPickerContainer: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: {
+      xs: 'start',
+      md: 'center'
+    },
     justifyContent: 'space-between',
     backgroundColor: '#0e141d',
     px: 4,
     py: 2
+  },
+  colorPickerWrapper: {
+    display: 'flex',
+    gap: 2,
+    alignItems: {
+      xs: 'start',
+      md: 'center'
+    },
+    flexDirection: {
+      xs: 'column',
+      md: 'row'
+    }
   },
   colorPicker: {
     display: 'flex',
