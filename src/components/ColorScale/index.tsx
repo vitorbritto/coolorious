@@ -4,6 +4,7 @@ import { toast } from 'react-toastify'
 import { generateColorScale } from '../../utils/colorScale'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import DownloadIcon from '@mui/icons-material/Download'
+import { styles } from '../../theme/styles'
 
 const ColorScale = () => {
   const [selectedColor, setSelectedColor] = useState('#ffec70')
@@ -22,21 +23,12 @@ const ColorScale = () => {
       await navigator.clipboard.writeText(color)
       toast.success(`Cor ${color} copiada!`, {
         icon: () => '📋',
-        style: {
-          backgroundColor: '#0e141d',
-          color: '#ffec70',
-          borderRadius: '4px',
-          fontFamily: 'monospace'
-        }
+        style: styles.toastMessage
       })
     } catch (err) {
       toast.error('Não foi possível copiar a cor', {
         icon: () => '❌',
-        style: {
-          backgroundColor: '#0e141d',
-          color: '#ffec70',
-          borderRadius: '4px'
-        }
+        style: styles.toastMessage
       })
     }
   }
@@ -47,21 +39,12 @@ const ColorScale = () => {
       await navigator.clipboard.writeText(colorsText)
       toast.success('Todas as cores foram copiadas!', {
         icon: () => '📋',
-        style: {
-          backgroundColor: '#0e141d',
-          color: '#ffec70',
-          borderRadius: '4px',
-          fontFamily: 'monospace'
-        }
+        style: styles.toastMessage
       })
     } catch (err) {
       toast.error('Não foi possível copiar as cores', {
         icon: () => '❌',
-        style: {
-          backgroundColor: '#0e141d',
-          color: '#ffec70',
-          borderRadius: '4px'
-        }
+        style: styles.toastMessage
       })
     }
   }
@@ -80,143 +63,51 @@ const ColorScale = () => {
 
     toast.success('Escala de cores baixada!', {
       icon: () => '💾',
-      style: {
-        backgroundColor: '#0e141d',
-        color: '#ffec70',
-        borderRadius: '4px',
-        fontFamily: 'monospace'
-      }
+      style: styles.toastMessage
     })
   }
 
   return (
-    <Box
-      sx={{
-        mt: '3.25rem',
-        height: 'calc(100vh - 64px)',
-        display: 'flex',
-        flexDirection: 'column'
-      }}
-    >
-      {/* Color Picker */}
-      <Box
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          backgroundColor: '#0e141d',
-          px: 4,
-          py: 2
-        }}
-      >
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          <Typography
-            sx={{
-              fontSize: '0.875rem',
-              color: '#ffec70',
-              opacity: 0.8
-            }}
-          >
-            Selecione sua cor
-          </Typography>
-
+    <Box sx={styles.colorScaleContainer}>
+      <Box sx={styles.colorPickerContainer}>
+        <Box sx={styles.colorPicker}>
+          <Typography sx={styles.colorPickerText}>Selecione sua cor</Typography>
           <input
             type="color"
             value={selectedColor}
             onChange={handleColorChange}
-            style={{
-              width: '32px',
-              height: '32px',
-              padding: 0,
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              backgroundColor: 'transparent'
-            }}
+            style={styles.colorPickerInput}
           />
-          <Typography
-            sx={{
-              fontSize: '0.875rem',
-              fontWeight: 500,
-              color: '#fff',
-              fontFamily: 'monospace'
-            }}
-          >
+          <Typography sx={styles.colorPickerSelectedColor}>
             {selectedColor.toUpperCase()}
           </Typography>
         </Box>
 
-        <Box sx={{ display: 'flex', gap: 1 }}>
+        <Box sx={styles.colorPickerActions}>
           <Tooltip title="Copiar todas as cores" arrow placement="bottom">
-            <IconButton
-              onClick={handleCopyAll}
-              sx={{
-                color: '#ffec70',
-                opacity: 0.8,
-                '&:hover': { opacity: 1 }
-              }}
-            >
+            <IconButton onClick={handleCopyAll} sx={styles.colorPickerAction}>
               <ContentCopyIcon fontSize="small" />
             </IconButton>
           </Tooltip>
           <Tooltip title="Baixar escala de cores" arrow placement="bottom">
-            <IconButton
-              onClick={handleDownload}
-              sx={{
-                color: '#ffec70',
-                opacity: 0.8,
-                '&:hover': { opacity: 1 }
-              }}
-            >
+            <IconButton onClick={handleDownload} sx={styles.colorPickerAction}>
               <DownloadIcon fontSize="small" />
             </IconButton>
           </Tooltip>
         </Box>
       </Box>
 
-      {/* Color Scale */}
-      <Box
-        sx={{
-          display: 'flex',
-          width: '100%',
-          flex: 1,
-          overflow: 'hidden'
-        }}
-      >
+      <Box sx={styles.colorScale}>
         {colorScale.map((color, index) => (
           <Box
             key={index}
             sx={{
-              flex: 1,
-              bgcolor: color,
-              cursor: 'pointer',
-              transition: 'all 0.2s ease-in-out',
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'flex-end',
-              justifyContent: 'center',
-              pb: 3,
-              '&:hover': {
-                flex: 1.5
-              }
+              ...styles.colorScaleItem,
+              bgcolor: color
             }}
             onClick={() => handleCopyColor(color)}
           >
-            <Box
-              sx={{
-                backgroundColor: 'rgba(0, 0, 0, 0.75)',
-                backdropFilter: 'blur(4px)',
-                padding: '4px 8px',
-                borderRadius: '4px',
-                opacity: 0,
-                transform: 'translateY(8px)',
-                transition: 'all 0.2s ease-in-out',
-                '.MuiBox-root:hover &': {
-                  opacity: 1,
-                  transform: 'translateY(0)'
-                }
-              }}
-            >
+            <Box sx={styles.colorScaleItemText}>
               <Typography
                 sx={{
                   fontSize: '0.75rem',

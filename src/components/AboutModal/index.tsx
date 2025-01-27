@@ -2,6 +2,7 @@ import { Box, Modal, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
 import { version } from '../../../package.json'
+import { styles } from '../../theme/styles'
 
 interface AboutModalProps {
   open: boolean
@@ -14,67 +15,23 @@ const AboutModal = ({ open, onClose }: AboutModalProps) => {
       open={open}
       onClose={onClose}
       aria-labelledby="about-modal"
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        p: 2
-      }}
+      sx={styles.aboutModal}
     >
-      <Box
-        sx={{
-          position: 'relative',
-          bgcolor: '#0c1118',
-          borderRadius: 2,
-          p: 4,
-          maxWidth: '600px',
-          width: '100%',
-          outline: 'none',
-          border: '1px solid rgba(255,255,255,0.1)'
-        }}
-      >
+      <Box sx={styles.aboutModalContent}>
         <Box
           component="button"
           onClick={onClose}
           aria-label="fechar"
-          sx={{
-            position: 'absolute',
-            top: 16,
-            right: 16,
-            color: '#ffec70',
-            opacity: 0.8,
-            cursor: 'pointer',
-            background: 'none',
-            border: 'none',
-            padding: 0,
-            display: 'flex',
-            '&:hover': {
-              opacity: 1
-            }
-          }}
+          sx={styles.modalCloseButton}
         >
           <CloseIcon />
         </Box>
 
-        <Typography
-          variant="h2"
-          sx={{
-            fontSize: '1.5rem',
-            fontWeight: 600,
-            color: '#ffec70',
-            mb: 3
-          }}
-        >
+        <Typography variant="h2" sx={styles.modalTitle}>
           Sobre o Coolorious
         </Typography>
 
-        <Typography
-          sx={{
-            color: '#fff',
-            lineHeight: 1.7,
-            mb: 4
-          }}
-        >
+        <Typography sx={styles.modalDescription}>
           O Coolorious é uma ferramenta de geração de escalas de cores projetada para
           designers e desenvolvedores. Com ela, você pode criar facilmente escalas
           harmoniosas a partir de qualquer cor base, gerando tons mais claros e mais
@@ -83,13 +40,7 @@ const AboutModal = ({ open, onClose }: AboutModalProps) => {
           profissional.
         </Typography>
 
-        <Box
-          sx={{
-            display: 'flex',
-            gap: 2,
-            color: '#ffffff40'
-          }}
-        >
+        <Box sx={styles.modalVersion}>
           <Typography component="span" variant="caption">
             Versão {version}
           </Typography>

@@ -11,22 +11,12 @@ import '@fontsource/poppins/700.css'
 import { theme } from './theme'
 import Header from './components/Header'
 import ColorScale from './components/ColorScale'
-
+import { styles } from './theme/styles'
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box
-        sx={{
-          height: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: '#0c1118',
-          color: '#ffec70',
-          fontFamily: '"Poppins", sans-serif',
-          width: '100%'
-        }}
-      >
+      <Box sx={styles.container}>
         <Header />
         <ColorScale />
         <ToastContainer
