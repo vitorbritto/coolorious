@@ -1,6 +1,8 @@
 import { Box, Modal, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close'
 
+import { version } from '../../../package.json'
+
 interface AboutModalProps {
   open: boolean
   onClose: () => void
@@ -89,10 +91,10 @@ const AboutModal = ({ open, onClose }: AboutModalProps) => {
           }}
         >
           <Typography component="span" variant="caption">
-            Versão 0.3.0
+            Versão {version}
           </Typography>
           <Typography component="span" variant="caption">
-            Última atualização: 26/01/2025
+            Última atualização: 27/01/2025
           </Typography>
         </Box>
       </Box>
