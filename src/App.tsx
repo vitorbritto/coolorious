@@ -20,7 +20,7 @@ const App = () => {
         <Header />
         <ColorScale />
         <ToastContainer
-          position="bottom-center"
+          position="top-center"
           autoClose={2000}
           hideProgressBar
           closeOnClick
