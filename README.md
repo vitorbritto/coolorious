@@ -3,11 +3,11 @@
   <h1>Coolorious</h1>
 </div>
 
-# Sobre
+# About
 
-O Coolorious é uma ferramenta de geração de escalas de cores projetada para designers e desenvolvedores. Com ela, você pode criar facilmente escalas harmoniosas a partir de qualquer cor base, gerando tons mais claros e mais escuros que mantêm a consistência visual. Perfeita para sistemas de design, interfaces e qualquer projeto que necessite de uma paleta de cores coesa e profissional.
+Coolorious is a color scale generation tool designed for designers and developers. With it, you can easily create harmonious color scales from any base color, generating lighter and darker shades that maintain visual consistency. Perfect for design systems, interfaces, and any project that needs a cohesive and professional color palette.
 
-## Tecnologias
+## Technologies
 
 - React
 - Typescript
@@ -22,14 +22,14 @@ O Coolorious é uma ferramenta de geração de escalas de cores projetada para d
 - React Icons
 - React Toastify
 
-## Contribuindo
+## Contributing
 
-1. Faça um fork do projeto
-2. Crie uma branch com a sua feature: `git checkout -b my-feature`
-3. Faça um commit com suas alterações: `git commit -m 'feat: My new feature'`
-4. Faça um push para a branch: `git push origin my-feature`
-5. Abra um Pull Request
+1. Fork this repository
+2. Create a branch for your feature: `git checkout -b my-feature`
+3. Commit your changes: `git commit -m 'feat: My new feature'`
+4. Push to your branch: `git push origin my-feature`
+5. Open a Pull Request
 
-## Licença
+## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
